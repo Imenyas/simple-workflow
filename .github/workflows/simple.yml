@@ -1,23 +1,24 @@
- name: simple1
+name: simple1
 
- on: push
+on: push
 
-   jobs:
-    job1:
-      -name: Description of what the first job does
-      runs-on: ubutnu-latest 
-      steps: 
-        -name: step 1
-          uses: actions/checkout@v2
-          run: env |sort
-          
-        -name: step2
-    job2:
-      -name: Description of another  job for this workflow
-      runs-on: windows-latest 
-      steps: 
-        -name: step 1
-          uses: actions/checkout@v2
-          run: "GetChildItem Env: | Sort-Object Name"
-        -name: step2
-      
+jobs:
+  job1:
+    name: Description of what the first job does
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        
+      - name: Print environment variables
+        run: env | sort
+
+  job2:
+    name: Description of another job for this workflow
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        
+      - name: Print environment variables
+        run: "Get-ChildItem Env: | Sort-Object Name"
