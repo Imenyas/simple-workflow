@@ -1,0 +1,23 @@
+ name: simple1
+
+ on: push
+
+   jobs:
+    job1:
+      -name: Description of what the first job does
+      runs-on: ubutnu-latest 
+      steps: 
+        -name: step 1
+          uses: actions/checkout@v2
+          run: env |sort
+          
+        -name: step2
+    job2:
+      -name: Description of another  job for this workflow
+      runs-on: windows-latest 
+      steps: 
+        -name: step 1
+          uses: actions/checkout@v2
+          run: "GetChildItem Env: | Sort-Object Name"
+        -name: step2
+      
